@@ -1,0 +1,43 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    babbler (2.0.0)
+    dotenv (2.2.1)
+    marc (1.0.0)
+      scrub_rb (>= 1.0.1, < 2)
+      unf
+    mini_portile2 (2.1.0)
+    nokogiri (1.7.0.1)
+      mini_portile2 (~> 2.1.0)
+    openurl (1.0.0)
+      marc
+      scrub_rb (~> 1.0)
+    rack (1.6.5)
+    rack-protection (1.5.3)
+      rack
+    ruby_http_client (3.0.1)
+    scrub_rb (1.0.1)
+    sendgrid-ruby (4.0.8)
+      ruby_http_client (~> 3.0.1)
+    sinatra (1.4.8)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    tilt (2.0.7)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  babbler
+  dotenv
+  nokogiri
+  openurl
+  sendgrid-ruby
+  sinatra
+
+BUNDLED WITH
+   1.14.6
