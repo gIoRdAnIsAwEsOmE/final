@@ -3,34 +3,29 @@ require "open-uri"
 require "nokogiri"
 
 class Story
-	def initialize()
+	def initialize
 		@babble = Babbler.babble
 		@link = "https://mobile.nytimes.com/search?query=#{@babble}&sort=rel&action=click&contentCollection&region=TopBar&WT.nav=searchWidget&module=SearchSubmit&pgtype=Homepage"
 		url = URI.parse(URI.encode(link.strip))
-		@doc = Nokogiri::HTML(open(@url))
+		@doc = Nokogiri::HTML(open(url))
 		puts "Selected words are #{@babble} \nlink is: #{url}"
 	end
 	def result
-		@doc.css(".highlighted").each do |element|
-			return element
-		end
+		return @doc.css(".headlines").css(".highlighted")
 	end
-	def babbler
-		return @babble
+	def babble
+		@babble
 	end
 	def link
-		return @link
+		@link
 	end
 	def title
-		link = @doc.css(".highlighted").css(".title") 
-		return link
+		return result.css(".title") 
 	end
 	def summary
-		link = @doc.css(".highlighted").xpath("//a/p")
-		return link
+		return result.xpath("//a/p")
 	end
 	def info
-		link = @doc.css(".highlighted").css(".search-item-details").xpath("//span")
-		return link
+		return result.css(".highlighted").css(".search-item-details")[0]
 	end
 end
